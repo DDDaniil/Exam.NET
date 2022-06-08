@@ -8,7 +8,6 @@ import reportWebVitals from './reportWebVitals';
 import {Home} from "./components/Home";
 import {createRoot} from "react-dom/client";
 
-/*const baseUrl = document.getElementsByTagName('base')[0].getAttribute('href');*/
 const rootElement = document.getElementById('root')!;
 const root = createRoot(rootElement)
 

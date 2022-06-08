@@ -18,8 +18,6 @@
     SurnameMaxLength,
     SurnameMinLength
 } from "../variables/Variables";
-import {ICreditDataObject} from "../dataobject/ICreditDataObject";
-import {Deposit} from "../enums/Deposit";
 
 export const IsPassportSeriesValid = (value: string) =>
     value.length === PassportSeriesLength;

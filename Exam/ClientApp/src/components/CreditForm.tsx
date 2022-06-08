@@ -1,4 +1,5 @@
-﻿import React, {useEffect, useState} from 'react';
+﻿import '../custom.css'
+import React, {useEffect, useState} from 'react';
 import {Employment} from "../enums/Employment";
 import {Purpose} from "../enums/Purpose";
 import {Deposit} from "../enums/Deposit";
@@ -74,30 +75,30 @@ export function CreditForm() {
     return (
         <div>
             <form>
-                <div className="d-flex align-items-center flex-column container">
-                    <label>Фамилия</label>
-                    <input className="w-25 mb-3"
-                           value={surname}
-                           minLength={SurnameMinLength}
-                           maxLength={SurnameMaxLength}
-                           onChange={(e) => setSurname(e.target.value)}/>
-
-                    <label>Имя</label>
-                    <input className="w-25 mb-3"
+                <div className="d-flex align-items-center flex-column container backgroundColor">
+                    <label className="fw-bold">Имя</label>
+                    <input className="w-25 mb-4 ground"
                            value={name}
                            minLength={NameMinLength}
                            maxLength={NameMaxLength}
                            onChange={(e) => setName(e.target.value)}/>
-
-                    <label>Отчество</label>
-                    <input className="w-25 mb-3"
+                    
+                    <label className="fw-bold">Фамилия</label>
+                    <input className="w-25 mb-4 ground"
+                           value={surname}
+                           minLength={SurnameMinLength}
+                           maxLength={SurnameMaxLength}
+                           onChange={(e) => setSurname(e.target.value)}/>
+                    
+                    <label className="fw-bold">Отчество</label>
+                    <input className="w-25 mb-4 ground"
                            value={patronymic}
                            minLength={PatronymicMinLength}
                            maxLength={PatronymicMaxLength}
                            onChange={(e) => setPatronymic(e.target.value)}/>
 
-                    <label>Серия паспорта</label>
-                    <input className="w-25 mb-3"
+                    <label className="fw-bold">Серия паспорта</label>
+                    <input className="w-25 mb-4 ground"
                            value={passportSeries}
                            maxLength={PassportSeriesLength}
                            onChange={(e) => {
@@ -106,8 +107,8 @@ export function CreditForm() {
                                    setPassportSeries(e.target.value)
                            }}/>
 
-                    <label>Номер паспорта</label>
-                    <input className="w-25 mb-3"
+                    <label className="fw-bold">Номер паспорта</label>
+                    <input className="w-25 mb-4 ground"
                            value={passportNumber}
                            maxLength={PassportNumberLength}
                            onChange={(e) => {
@@ -116,33 +117,33 @@ export function CreditForm() {
                                    setPassportNumber(e.target.value)
                            }}/>
 
-                    <label>Кем выдан</label>
-                    <input className="w-25 mb-3"
+                    <label className="fw-bold">Кем выдан</label>
+                    <input className="w-25 mb-4 ground"
                            value={passportIssuer}
                            minLength={PassportIssuerMinLength}
                            maxLength={PassportIssuerMaxLength}
                            onChange={(e) => setPassportIssuer(e.target.value)}/>
 
-                    <label>Дата выдачи</label>
-                    <input className="w-25 mb-3"
+                    <label className="fw-bold">Дата выдачи</label>
+                    <input className="w-25 mb-4 ground"
                            type="date"
                            value={passportIssueDate.toISOString().split('T')[0]}
                            min="1900-01-01"
-                           max="3000-01-01"
+                           max="2200-01-01"
                            onChange={(e) => {
                                if (!isNaN(Date.parse(e.target.value)))
                                    setPassportIssueDate(new Date(e.target.value));
                            }}/>
 
-                    <label>Информация о прописке</label>
-                    <input className="w-25 mb-3"
+                    <label className="fw-bold">Информация о прописке</label>
+                    <input className="w-25 mb-4 ground"
                            minLength={PassportRegInformationMinLength}
                            maxLength={PassportRegInformationMaxLength}
                            value={passportRegInformation}
                            onChange={(e) => setPassportRegInformation(e.target.value)}/>
 
-                    <label>Возраст</label>
-                    <input className="w-25 mb-3"
+                    <label className="fw-bold">Возраст</label>
+                    <input className="w-25 mb-4 ground"
                            value={adult}
                            maxLength={3}
                            onChange={(e) => {
@@ -153,8 +154,8 @@ export function CreditForm() {
                                    setAdult(0)
                            }}/>
 
-                    <label>Судимость</label>
-                    <select className="w-25 mb-3"
+                    <label className="fw-bold">Наличие судимости</label>
+                    <select className="w-25 mb-4 ground"
                             onChange={(e) => {
                                 if (e.target.value == "true")
                                     setJudging(true);
@@ -165,8 +166,8 @@ export function CreditForm() {
                         <option value="true">Есть судимость</option>
                     </select>
 
-                    <label>Трудоустройство</label>
-                    <select className="w-25 mb-3"
+                    <label className="fw-bold">Трудоустройство</label>
+                    <select className="w-25 mb-4 ground"
                             onChange={(e) => {
                                 let value = Number.parseInt(e.target.value);
                                 switch (value) {
@@ -195,8 +196,8 @@ export function CreditForm() {
                     </select>
 
 
-                    <label>Цель</label>
-                    <select className="w-25 mb-3"
+                    <label className="fw-bold">Цель кредита</label>
+                    <select className="w-25 mb-4 ground"
                             onChange={(e) => {
                                 let value = Number.parseInt(e.target.value);
                                 switch (value) {
@@ -216,8 +217,8 @@ export function CreditForm() {
                         <option value="2">Перекредитование</option>
                     </select>
 
-                    <label>Залог</label>
-                    <select className="w-25 mb-3"
+                    <label className="fw-bold">Залог</label>
+                    <select className="w-25 mb-4 ground"
                             onChange={(e) => {
                                 let value = Number.parseInt(e.target.value);
                                 switch (value) {
@@ -241,8 +242,8 @@ export function CreditForm() {
                         <option value="3">Поручительство</option>
                     </select>
 
-                    <label>Возраст авто(учитывается, если в пункте "залог" выбран автомобиль)</label>
-                    <input className="w-25 mb-3"
+                    <label className="fw-bold">Возраст авто(учитывается, если в пункте "залог" выбран автомобиль)</label>
+                    <input className="w-25 mb-4 ground"
                            value={carAge}
                            maxLength={2}
                            onChange={(e) => {
@@ -253,8 +254,8 @@ export function CreditForm() {
                                    setCarAge(0)
                            }}/>
 
-                    <label>Наличие других кредитов</label>
-                    <select className="w-25 mb-3"
+                    <label className="fw-bold">Наличие других кредитов</label>
+                    <select className="w-25 mb-4 ground"
                             onChange={(e) => {
                                 if (e.target.value == "true")
                                     setOtherCredits(true);
@@ -265,8 +266,8 @@ export function CreditForm() {
                         <option value="true">Есть</option>
                     </select>
 
-                    <label>Сумма</label>
-                    <input className="w-25 mb-3"
+                    <label className="fw-bold">Сумма</label>
+                    <input className="w-25 mb-4 ground"
                            value={amount}
                            maxLength={AmountMax.toString().length}
                            onChange={(e) => {
@@ -277,17 +278,14 @@ export function CreditForm() {
                                    setAmount(0)
                            }}/>
 
-                    <label className="errorLabel">&nbsp;</label>
-                    <button className="mb-3" onClick={submitForm}>Отправить</button>
+                    <button className="mb-4 colorButton ground fw-bold" onClick={submitForm}>Отправить</button>
+                    <label className="errorLabel fw-bold">&nbsp;</label>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
                 </div>
             </form>
         </div>
     )
-
-
-
-
-
-
-    
 }
